@@ -1,0 +1,205 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600&display=swap');
+
+:root{
+    --light: #e8ecee;
+    --color-text: ##3c3e41;
+    --box-shadow: 
+    5px 5px 15px #c1c8d3, 
+    -5px -5px 15px #ffffff;
+}
+body{
+    margin: 0;
+    background-color: var(--light);
+    color: var(--color-text);
+    font-family: 'Poppins', sans-serif;
+    font-size: 15px;
+}
+header{
+    padding: 10px;
+    border-bottom: 1px solid #dce1e4;
+    display: grid;
+    grid-template-columns: 30% 70%;
+}
+header .logo img{
+    height: 50px;
+}
+header ul{
+    margin: 0;
+    list-style: none;
+    display: flex;
+    height: 100%;
+    justify-content: end;
+    align-items: center;
+}
+header ul li{
+    padding: 0 30px;
+}
+.container{
+    width: 1200px;
+    max-width: 90%;
+    margin: auto;
+}
+.banner{
+    margin-top: 50px;
+    display: grid;
+    grid-template-columns: 60% 40%;
+    column-gap: 50px;
+    border-bottom: 1px solid #dce1e4;
+    padding-bottom: 50px;
+}
+.banner .content{
+    text-align: justify;
+}
+.banner .content h1{
+    font-size: 4.5em;
+    margin: 0;
+}
+.gradientText{
+  display: inline-block;
+    background: linear-gradient(to right, #D000F7, #24BAE3);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.job{
+   display: inline-block;
+}
+.job::before{
+    content: attr(data-job1);
+    overflow: hidden;
+    display: inline-flex;
+    animation: effectText 1s linear infinite alternate,
+    changeText 4s linear infinite;
+}
+@keyframes effectText{
+    from{
+        max-width: 0;
+    }to{
+        max-width: 500px;
+    }
+}
+@keyframes changeText{
+    from{
+        content: attr(data-job1);
+    }
+    to{
+        content: attr(data-job2);
+    }
+}
+.find{
+    margin-top: 50px;
+}
+.find ul{
+    padding: 0;
+    list-style: none;
+    display: flex;
+}
+.find ul li{
+    width: 50px;
+    height: 50px;
+    box-shadow: var(--box-shadow);
+    margin: 10px;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: 0.5s;
+}
+.find ul li:hover{
+    color: #fff;
+    background-image: linear-gradient(-45deg, #D000F7, #24BAE3);
+}
+.banner .avatar{
+    position: relative;
+    height: max-content;
+    text-align: center;
+}
+.banner .avatar::before{
+    position: absolute;
+    width: 90%;
+    height: 80%;
+    content: '';
+    z-index: -1;
+    bottom: 0;
+    border-radius: 10px;
+    box-shadow: var(--box-shadow);
+    background-image: linear-gradient(145deg, #e2e8ec, #ffffff);
+}
+.banner img{
+    width: 90%;
+}
+header .navDiv,
+header .nav label,
+header input{
+    display: none;
+}
+/* Desktops and laptops ----------- */
+@media  screen and (min-width:1224px) {
+	/* Styles */
+}
+/* iPads (portrait and landscape) ----------- */
+@media only screen and (min-width:768px) and (max-width:1024px) {
+	/* Styles */
+    header  ul{
+    }
+    .banner{
+        grid-template-columns: 40% 60%;
+    }
+    .banner .content h1{
+        font-size: 2em;
+    }
+}
+/* mobile */
+
+@media screen and (max-width: 767px){
+    .banner{
+        grid-template-columns: 100%;
+    }
+    .banner .content h1{
+        font-size: 1.2em;
+    }
+    .banner .avatar{
+        grid-row-start: 1;
+    }
+    header .navDiv{
+        display: flex;
+        justify-content: end;
+    }
+    header label{
+        width: 50px;
+        height: 50px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: red;
+        box-shadow: var(--box-shadow);
+        border-radius: 50%;
+    }
+    header .nav{
+        position: fixed;
+        background-color: #F0F3F5;
+        z-index: 1;
+        width: 70%;
+        height: 100vh;
+        left: 0;
+        top: 0;
+        display: grid;
+        grid-template-columns: 100%;
+        grid-template-rows: repeat(5, 70px);
+        transform: translateX(-100%);
+        transition: 0.5s;
+    }
+    input#menu:checked ~ .nav{
+        transform: translateX(0%);
+    }
+    header .nav label{
+        width: 50px;
+        height: 50px;
+        box-shadow: var(--box-shadow);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 50%;
+        color: red;
+    }
+}
